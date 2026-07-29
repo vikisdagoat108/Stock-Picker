@@ -1,2 +1,2 @@
 # Stock-Picker
-there is no description :)
+there is no description :D
