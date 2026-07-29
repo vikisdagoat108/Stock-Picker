@@ -12,6 +12,10 @@
     localStorage.setItem(THEME_KEY, theme);
   }
 
+  function getUser() {
+    return localStorage.getItem(USER_KEY);
+  }
+
   function escapeHtml(str) {
     const d = document.createElement("div");
     d.textContent = str;
@@ -28,15 +32,15 @@
     }
 
     const theme = getTheme();
-    const user = localStorage.getItem(USER_KEY);
+    const user = getUser();
 
     bar.innerHTML = `
-      <a href="${ROOT}index.html" class="topbar-logo">📈 Simple Stock Picks</a>
+      <a href="${ROOT}welcome.html" class="topbar-logo">📈 Simple Stock Picks</a>
       <div class="topbar-right">
         <button id="themeToggleBtn" class="theme-toggle-btn" type="button">${theme === "dark" ? "☀️ Light mode" : "🌙 Dark mode"}</button>
         ${
           user
-            ? `<span class="user-chip">👤 ${escapeHtml(user)}</span><button id="signOutBtn" class="signout-btn" type="button">Sign Out</button>`
+            ? `<a href="${ROOT}saved.html" class="signout-btn" style="text-decoration:none;">⭐ Saved</a><span class="user-chip">👤 ${escapeHtml(user)}</span><button id="signOutBtn" class="signout-btn" type="button">Sign Out</button>`
             : `<button id="loginBtn" class="login-btn" type="button">Log In</button>`
         }
       </div>
@@ -51,19 +55,20 @@
       document.getElementById("signOutBtn").addEventListener("click", () => {
         localStorage.removeItem(USER_KEY);
         renderTopbar();
+        window.dispatchEvent(new CustomEvent("sp-auth-change"));
       });
     } else {
-      document.getElementById("loginBtn").addEventListener("click", openLoginModal);
+      document.getElementById("loginBtn").addEventListener("click", () => openLoginModal());
     }
   }
 
-  function openLoginModal() {
+  function openLoginModal(onSuccess) {
     const overlay = document.createElement("div");
     overlay.className = "modal-overlay";
     overlay.innerHTML = `
       <div class="modal-card">
         <h3>Log In</h3>
-        <p class="modal-note">This just remembers your name on this device so the site can greet you — there's no real account, password, or data collection.</p>
+        <p class="modal-note">This just remembers your name on this device so the site can greet you and save your picks — there's no real account, password, or data collection.</p>
         <input type="text" id="loginNameInput" placeholder="Your name" autocomplete="off" maxlength="40">
         <div class="modal-actions">
           <button class="modal-cancel" id="modalCancelBtn" type="button">Cancel</button>
@@ -88,6 +93,8 @@
       localStorage.setItem(USER_KEY, name);
       close();
       renderTopbar();
+      window.dispatchEvent(new CustomEvent("sp-auth-change"));
+      if (typeof onSuccess === "function") onSuccess(name);
     }
 
     document.getElementById("modalCancelBtn").addEventListener("click", close);
@@ -100,6 +107,18 @@
       if (e.key === "Escape") close();
     });
   }
+
+  window.SPAuth = {
+    getUser: getUser,
+    requireLogin: function (onReady) {
+      const user = getUser();
+      if (user) {
+        onReady(user);
+      } else {
+        openLoginModal(onReady);
+      }
+    },
+  };
 
   document.addEventListener("DOMContentLoaded", renderTopbar);
 })();

@@ -1,13 +1,15 @@
 :root, :root[data-theme="dark"]{
   --bg:#0f1420; --card:#161d2e; --border:#263050; --text:#e6ebf5; --muted:#8b96b3; --text-soft:#c3cbe0;
-  --accent:#3b82f6; --green:#22c55e; --amber:#f59e0b; --orange:#fb923c; --red:#ef4444;
+  --accent:#3b82f6; --green:#22c55e; --amber:#f59e0b; --orange:#fb923c; --red:#ef4444; --purple:#a855f7; --teal:#2dd4bf;
   --disclaimer-bg:#3a2a10; --disclaimer-border:#6b4b12; --disclaimer-text:#f2c66d;
+  --tip-bg:rgba(59,130,246,0.10); --tip-border:rgba(59,130,246,0.35); --tip-text:#bfdbfe;
   --overlay:rgba(0,0,0,0.55);
 }
 :root[data-theme="light"]{
   --bg:#f5f7fb; --card:#ffffff; --border:#e2e8f0; --text:#1a202c; --muted:#64748b; --text-soft:#334155;
-  --accent:#2563eb; --green:#16a34a; --amber:#d97706; --orange:#ea580c; --red:#dc2626;
+  --accent:#2563eb; --green:#16a34a; --amber:#d97706; --orange:#ea580c; --red:#dc2626; --purple:#7c3aed; --teal:#0d9488;
   --disclaimer-bg:#fef3c7; --disclaimer-border:#f5d78e; --disclaimer-text:#92620a;
+  --tip-bg:#eff6ff; --tip-border:#bfdbfe; --tip-text:#1e40af;
   --overlay:rgba(15,20,32,0.45);
 }
 *{box-sizing:border-box;}
@@ -15,13 +17,22 @@ body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg
 .container{max-width:1000px;margin:0 auto;padding:28px 20px 60px;}
 
 /* ── Top bar ──────────────────────────────────────────────── */
-.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--card);border-bottom:1px solid var(--border);}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:12px 20px;background:var(--card);border-bottom:1px solid var(--border);}
 .topbar-logo{color:var(--text);text-decoration:none;font-weight:700;font-size:15px;}
-.topbar-right{display:flex;align-items:center;gap:10px;}
+.topbar-right{display:flex;align-items:center;flex-wrap:wrap;gap:10px;}
 .theme-toggle-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:7px 11px;border-radius:8px;cursor:pointer;font-size:13px;}
 .theme-toggle-btn:hover{border-color:var(--accent);}
 .login-btn{background:var(--accent);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;}
 .login-btn:hover{opacity:.9;}
+
+.save-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;align-self:flex-start;}
+.save-btn:hover{border-color:var(--amber);}
+.save-btn.saved{background:rgba(245,158,11,0.15);border-color:var(--amber);color:var(--amber);}
+
+.saved-card{position:relative;}
+.remove-saved-btn{position:absolute;top:10px;right:10px;background:transparent;border:1px solid var(--border);color:var(--muted);width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:12px;line-height:1;}
+.remove-saved-btn:hover{border-color:var(--red);color:var(--red);}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
 .user-chip{font-size:13px;color:var(--muted);}
 .signout-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:7px 13px;border-radius:8px;font-size:12.5px;cursor:pointer;}
 .signout-btn:hover{border-color:var(--accent);}
@@ -42,13 +53,81 @@ header p{margin:0;color:var(--muted);font-size:14px;max-width:640px;line-height:
 
 .disclaimer{background:var(--disclaimer-bg);border:1px solid var(--disclaimer-border);color:var(--disclaimer-text);font-size:12.5px;padding:10px 14px;border-radius:8px;margin-top:16px;}
 
+.tip-box{background:var(--tip-bg);border:1px solid var(--tip-border);color:var(--tip-text);font-size:13.5px;line-height:1.55;padding:14px 16px;border-radius:10px;margin-top:22px;}
+
+/* ── S&P 500 changes tracker ─────────────────────────────── */
+.swap-list{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
+.swap-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.swap-date{font-size:11.5px;color:var(--muted);margin-bottom:10px;}
+.swap-row{display:flex;align-items:center;gap:12px;}
+.swap-side{flex:1;min-width:0;}
+.swap-side.out{text-align:right;}
+.swap-arrow{font-size:16px;color:var(--muted);flex-shrink:0;}
+.join-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(34,197,94,0.15);color:var(--green);margin-bottom:4px;}
+.leave-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(239,68,68,0.15);color:var(--red);margin-bottom:4px;}
+.swap-name{font-size:14px;font-weight:700;}
+.swap-ticker{font-size:12px;color:var(--muted);}
+.swap-reason{font-size:12px;color:var(--text-soft);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+.verdict-line{font-size:13px;font-weight:700;}
+.verdict-line + .verdict-line{margin-top:5px;}
+.verdict-line.buy{color:var(--green);}
+.verdict-line.sell{color:var(--red);}
+.verdict-line.neutral{color:var(--muted);font-weight:600;}
+
+/* ── "Happening right now" hero box ──────────────────────── */
+.current-activity-box{background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:24px;margin-top:18px;}
+.current-activity-label{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--accent);margin-bottom:8px;}
+.current-activity-date{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+.current-activity-box .swap-row{margin-bottom:16px;}
+.current-activity-box .swap-name{font-size:17px;}
+.current-activity-box .verdict-line{font-size:16px;padding-top:14px;border-top:1px solid var(--border);}
+.current-activity-note{font-size:11.5px;color:var(--muted);margin-top:10px;font-style:italic;}
+.best-deal-note-footer{font-size:11.5px;color:var(--muted);margin-top:16px;font-style:italic;}
+
+/* ── "Best deal right now" comparison box ────────────────── */
+.best-deal-box{background:var(--card);border:2px solid var(--green);border-radius:16px;padding:24px;margin-top:18px;}
+.best-deal-label{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--green);margin-bottom:10px;}
+.best-deal-verdict{font-size:16px;font-weight:700;color:var(--green);margin-bottom:18px;}
+.best-deal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.best-deal-item{border:1px solid var(--border);border-radius:12px;padding:14px;}
+.best-deal-item.winner{border-color:var(--green);background:rgba(34,197,94,0.08);position:relative;}
+.best-deal-item.winner::before{content:"🏆 Best deal";position:absolute;top:-11px;left:12px;background:var(--green);color:#062b12;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px;}
+.best-deal-name{font-size:14px;font-weight:700;margin-bottom:6px;}
+.best-deal-stat{font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px;}
+.best-deal-note{font-size:12px;color:var(--muted);line-height:1.5;}
+
+.change-group-title{font-size:12.5px;font-weight:700;margin:14px 0 8px;}
+.change-chip-list{display:flex;flex-wrap:wrap;gap:8px;}
+.change-chip{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12.5px;}
+.change-chip b{margin-right:5px;}
+.change-chip.in{border-color:rgba(34,197,94,0.35);}
+.change-chip.out{border-color:rgba(239,68,68,0.35);}
+
+.candidate-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.candidate-chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:12.5px;min-width:150px;}
+.candidate-chip b{display:block;font-size:13.5px;margin-bottom:2px;}
+
+.sources-box{margin-top:14px;font-size:12px;color:var(--muted);}
+.sources-box a{color:var(--accent);}
+.sources-box li{margin-bottom:4px;}
+
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;}
 .choice-card{border-radius:14px;padding:26px 24px;border:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:transform .12s, border-color .12s;}
 .choice-card.long{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.35);}
 .choice-card.short{background:rgba(251,146,60,0.08);border-color:rgba(251,146,60,0.35);}
+.choice-card.timing{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.35);}
+.choice-card.stocks{background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.35);}
+.choice-card.sp500{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.35);}
+.choice-card.nasdaq{background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.35);}
+.choice-card.dow{background:rgba(45,212,191,0.08);border-color:rgba(45,212,191,0.35);}
 .choice-card:hover{transform:translateY(-3px);}
 .choice-card.long:hover{border-color:var(--green);}
 .choice-card.short:hover{border-color:var(--orange);}
+.choice-card.timing:hover{border-color:var(--accent);}
+.choice-card.stocks:hover{border-color:var(--purple);}
+.choice-card.sp500:hover{border-color:var(--accent);}
+.choice-card.nasdaq:hover{border-color:var(--purple);}
+.choice-card.dow:hover{border-color:var(--teal);}
 .choice-icon{font-size:32px;margin-bottom:8px;}
 .choice-card h2{margin:0 0 8px;font-size:18px;}
 .choice-card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55;}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Saved Picks — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="welcome.html">← Back to home</a>
+
+  <header style="margin-top:18px;">
+    <h1>⭐ My Saved Picks</h1>
+    <p>Everything you've saved with the ☆ Save button, in one place.</p>
+  </header>
+
+  <div id="savedContent" style="margin-top:24px;"></div>
+
+  <footer>Sample picks for learning · Not investment advice</footer>
+</div>
+<script src="topbar.js"></script>
+<script src="save.js"></script>
+<script>
+  function cardFor(item) {
+    return `
+      <div class="pick-card saved-card">
+        <button class="remove-saved-btn" data-id="${item.id}" title="Remove" type="button">✕</button>
+        <div class="pick-top">
+          <div>
+            <div class="pick-icon">${item.icon}</div>
+            <div class="pick-name">${item.name}</div>
+            <div class="pick-ticker">${item.ticker}</div>
+          </div>
+        </div>
+        <a href="${item.url}" class="see-more">View →</a>
+      </div>
+    `;
+  }
+
+  function render() {
+    const holder = document.getElementById("savedContent");
+    const user = window.SPAuth.getUser();
+
+    if (!user) {
+      holder.innerHTML = `
+        <div class="tip-box">You're not logged in. Log in to see and save your picks — it's just a name on this device, no real account needed.</div>
+        <button id="savedLoginBtn" class="login-btn" type="button" style="margin-top:14px;">Log In</button>
+      `;
+      document.getElementById("savedLoginBtn").addEventListener("click", () => {
+        window.SPAuth.requireLogin(render);
+      });
+      return;
+    }
+
+    const items = window.SPSaved.getSavedItems(user);
+    if (items.length === 0) {
+      holder.innerHTML = `
+        <div class="empty-state">
+          Nothing saved yet. Browse <a href="index-funds.html">index funds</a> or <a href="index.html">stock picks</a> and hit ☆ Save on anything that catches your eye.
+        </div>
+      `;
+      return;
+    }
+
+    const indexItems = items.filter((i) => i.type === "index");
+    const stockItems = items.filter((i) => i.type === "stock");
+
+    let html = "";
+    if (indexItems.length) {
+      html += `<div class="section-head"><h2>Index Funds</h2></div><div class="pick-grid">${indexItems.map(cardFor).join("")}</div>`;
+    }
+    if (stockItems.length) {
+      html += `<div class="section-head" style="margin-top:32px;"><h2>Stocks</h2></div><div class="pick-grid">${stockItems.map(cardFor).join("")}</div>`;
+    }
+    holder.innerHTML = html;
+
+    holder.querySelectorAll(".remove-saved-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        window.SPSaved.removeSaved(user, btn.dataset.id);
+        render();
+      });
+    });
+  }
+
+  render();
+  window.addEventListener("sp-auth-change", render);
+</script>
+</body>
+</html>

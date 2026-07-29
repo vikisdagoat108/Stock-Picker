@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Picker — What Do You Want Help With?</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📈 Simple Stock Picks</h1>
+    <p>No finance background needed. What would you like help with today?</p>
+    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices aren't live and this isn't personal financial advice. Always do your own research or talk to a licensed advisor before investing real money.</div>
+  </header>
+
+  <div class="choice-grid">
+    <a class="choice-card timing" href="index-funds.html">
+      <div class="choice-icon">🗓️</div>
+      <h2>When to Buy an Index Fund</h2>
+      <p>Not sure if now's a good time to invest in the overall market? Choose from the S&P 500, Nasdaq-100, or Dow, and get simple, beginner-friendly guidance on timing.</p>
+      <div class="choice-cta">See timing guidance →</div>
+    </a>
+    <a class="choice-card stocks" href="index.html">
+      <div class="choice-icon">🎯</div>
+      <h2>Individual Stock Recommendations</h2>
+      <p>Want specific picks instead? Get 4 simple long-term picks and 4 short-term picks, with plain-English reasons for each.</p>
+      <div class="choice-cta">See stock picks →</div>
+    </a>
+  </div>
+
+  <footer>Sample picks for learning · Not investment advice</footer>
+</div>
+<script src="topbar.js"></script>
+</body>
+</html>

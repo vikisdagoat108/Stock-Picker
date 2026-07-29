@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Index Fund? — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="welcome.html">← Back to home</a>
+
+  <header style="margin-top:18px;">
+    <h1>📊 Which Index Fund?</h1>
+    <p>An index fund buys a whole basket of companies at once instead of just one. Here are the three most well-known ones — pick one to get simple timing guidance and see what's recently changed in it.</p>
+    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices aren't live and this isn't personal financial advice.</div>
+  </header>
+
+  <div class="best-deal-box">
+    <div class="best-deal-label">🏆 Best Deal Right Now</div>
+    <div class="best-deal-verdict">📈 Buy the Nasdaq-100 — it's pulled back about 6% from its recent high, while the S&P 500 and Dow are both sitting right at their highs.</div>
+    <div class="best-deal-grid">
+      <div class="best-deal-item winner">
+        <div class="best-deal-name">💻 Nasdaq-100</div>
+        <div class="best-deal-stat">+30.7% / 12mo</div>
+        <div class="best-deal-note">Down about 6% from its recent high — the best relative value of the three right now</div>
+      </div>
+      <div class="best-deal-item">
+        <div class="best-deal-name">🗽 S&P 500</div>
+        <div class="best-deal-stat">+15.0% / 12mo</div>
+        <div class="best-deal-note">Trading right at its 12-month high</div>
+      </div>
+      <div class="best-deal-item">
+        <div class="best-deal-name">🏛️ Dow</div>
+        <div class="best-deal-stat">+13.9% / 12mo</div>
+        <div class="best-deal-note">Trading right at its 12-month high</div>
+      </div>
+    </div>
+    <div class="best-deal-note-footer">This compares the three funds as a whole. It's separate from the individual companies moving in and out of each one — see each fund's page for that.</div>
+  </div>
+
+  <div class="choice-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+    <a class="choice-card sp500" href="sp500-timing.html">
+      <div class="choice-icon">🗽</div>
+      <h2>S&P 500</h2>
+      <p>500 of the biggest U.S. companies across every industry. The most common starting point for beginners.</p>
+      <div class="choice-cta">See S&P 500 guidance →</div>
+    </a>
+    <a class="choice-card nasdaq" href="nasdaq100-timing.html">
+      <div class="choice-icon">💻</div>
+      <h2>Nasdaq-100</h2>
+      <p>100 of the largest non-financial companies on the Nasdaq exchange — leans heavily toward tech and can be more volatile.</p>
+      <div class="choice-cta">See Nasdaq-100 guidance →</div>
+    </a>
+    <a class="choice-card dow" href="dow-timing.html">
+      <div class="choice-icon">🏛️</div>
+      <h2>Dow Jones Industrial Average</h2>
+      <p>30 well-established, "blue-chip" American companies. The oldest and most famous index, though the smallest of the three.</p>
+      <div class="choice-cta">See Dow guidance →</div>
+    </a>
+  </div>
+
+  <footer>Sample picks for learning · Not investment advice</footer>
+</div>
+<script src="topbar.js"></script>
+</body>
+</html>

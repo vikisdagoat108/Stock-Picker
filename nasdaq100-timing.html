@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When to Buy the Nasdaq-100 — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="index-funds.html">← Back to index funds</a>
+
+  <div class="current-activity-box">
+    <div class="current-activity-label">🟢 Happening Right Now</div>
+    <div class="current-activity-date">Most recent Nasdaq-100 change — July 7, 2026</div>
+    <div class="swap-row">
+      <div class="swap-side in">
+        <span class="join-badge">🟢 Joining</span>
+        <div class="swap-name">SpaceX</div>
+        <div class="swap-ticker">SPCX</div>
+      </div>
+    </div>
+    <div class="verdict-line sell">📉 Don't buy SpaceX right now — the stock has fallen since its IPO debut despite a strong long-term story.</div>
+    <div class="current-activity-note">Note: this verdict is about SpaceX as an individual stock — a separate question from whether now's a good time to buy the Nasdaq-100 fund as a whole (see "The simple approach" section below for that).</div>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-icon">💻</div>
+    <div>
+      <div class="detail-name">When to Buy the Nasdaq-100</div>
+      <div class="detail-ticker">Timing guidance for beginners</div>
+    </div>
+    <p class="blurb">The Nasdaq-100 holds 100 of the largest non-financial companies on the Nasdaq exchange — it's more concentrated in tech than the S&P 500, which means bigger swings in both directions.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="tip-box">💡 <strong>Most beginners do best</strong> investing a fixed amount on a regular schedule (like monthly) instead of waiting for the "right" time. This is called <strong>dollar-cost averaging</strong> — and it matters even more here since the Nasdaq-100 moves around more than broader funds.</div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Nasdaq-100 sample trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>The simple approach most beginners use</h2>
+    <ul class="detail-bullets">
+      <li>Invest the same amount every month, no matter what the price is doing that day</li>
+      <li>Since this index swings more than the S&P 500, spreading purchases out matters even more here</li>
+      <li>Removes the stress and guesswork of trying to find the "perfect" moment</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Signs some investors watch for</h2>
+    <ul class="detail-bullets">
+      <li>The index has recently dropped a lot on tech-sector news — some long-term investors see that as a chance to buy more for the same money</li>
+      <li>You already understand you're taking on more tech-sector concentration than a broader fund like the S&P 500</li>
+      <li>You have extra savings you're confident you won't need for at least 5+ years</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Heavily weighted toward technology — if tech has a bad stretch, this index feels it more than the S&P 500 does</li>
+      <li>Nobody — not even professionals — can consistently predict the "perfect" time to buy</li>
+      <li>Consistency over time tends to matter more than perfect timing</li>
+    </ul>
+  </div>
+
+  <section style="margin-top:32px;">
+    <div class="section-head">
+      <h2>🔄 Recent Nasdaq-100 Company Changes</h2>
+      <span>Real data — most recent first</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 4px;">Which real companies have recently joined or left the Nasdaq-100. Sourced from public index-tracking reports and Nasdaq's own announcements, not sample data. <strong>Last checked: July 29, 2026</strong> — this is a static file with no server, so ask to have it refreshed for the latest.</p>
+
+    <div class="change-group-title" style="margin-top:18px;">Most recent — a special addition (July 7, 2026)</div>
+    <div class="swap-card">
+      <div class="swap-date">July 7, 2026</div>
+      <div class="swap-row">
+        <div class="swap-side in">
+          <span class="join-badge">🟢 Joining</span>
+          <div class="swap-name">SpaceX</div>
+          <div class="swap-ticker">SPCX</div>
+        </div>
+      </div>
+      <div class="swap-reason">
+        <div class="verdict-line sell">📉 Don't buy SpaceX right now — the stock has fallen since its IPO debut despite a strong long-term story.</div>
+      </div>
+    </div>
+
+    <div class="change-group-title" style="margin-top:18px;">June 2026 quarterly rebalance (effective June 22, 2026)</div>
+    <div class="swap-card">
+      <div class="change-group-title">🟢 Joined (5)</div>
+      <div class="change-chip-list">
+        <div class="change-chip in"><b>Astera Labs</b>ALAB</div>
+        <div class="change-chip in"><b>CoreWeave</b>CRWV</div>
+        <div class="change-chip in"><b>Nebius Group</b>NBIS</div>
+        <div class="change-chip in"><b>Rocket Lab</b>RKLB</div>
+        <div class="change-chip in"><b>Teradyne</b>TER</div>
+      </div>
+      <div class="change-group-title">🔴 Left (5)</div>
+      <div class="change-chip-list">
+        <div class="change-chip out"><b>Charter Communications</b>CHTR</div>
+        <div class="change-chip out"><b>Cognizant</b>CTSH</div>
+        <div class="change-chip out"><b>Insmed</b>INSM</div>
+        <div class="change-chip out"><b>Verisk Analytics</b>VRSK</div>
+        <div class="change-chip out"><b>Zscaler</b>ZS</div>
+      </div>
+      <div class="swap-reason">
+        <div class="verdict-line buy">📈 Buy the group — most of the 5 joining (Astera Labs, CoreWeave, Nebius Group, Teradyne) are riding the AI infrastructure boom.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tip-box">
+    💡 <strong>Why this can matter:</strong> when a company joins an index like the Nasdaq-100, funds that track it are required to buy its shares — that buying pressure has historically given the stock a short-term bump. When a company leaves, the opposite tends to happen. It's a well-documented pattern, but not guaranteed, and part of the effect is often already priced in by the time the change is public.
+  </div>
+
+  <section style="margin-top:32px;">
+    <div class="section-head">
+      <h2>👀 Possible Future Additions</h2>
+      <span>Speculative — not confirmed</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 4px;">These aren't official candidates yet — they're not even public companies. But they're widely discussed as possible future IPOs that could eventually qualify for Nasdaq-100 inclusion.</p>
+    <div class="candidate-list">
+      <div class="candidate-chip"><b>Anthropic</b> Not yet public · AI</div>
+      <div class="candidate-chip"><b>OpenAI</b> Not yet public · AI</div>
+    </div>
+  </section>
+
+  <div class="other-picks" style="margin-top:36px;">
+    <h2>Sources for the changes above</h2>
+    <ul class="sources-box">
+      <li><a href="https://www.stocktitan.net/news/NDAQ/nasdaq-100-index-june-2026-quarterly-ogjaijvz3vmg.html" target="_blank" rel="noopener">StockTitan — Nasdaq-100 Index June 2026 Quarterly Changes</a></li>
+      <li><a href="https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-100-indexr-june-2026-quarterly-changes" target="_blank" rel="noopener">Nasdaq, Inc. — official investor relations announcement</a></li>
+      <li><a href="https://www.fool.com/investing/2026/07/06/spacex-joins-the-nasdaq-100-on-july-7-here-is-what/" target="_blank" rel="noopener">The Motley Fool — SpaceX Joins the Nasdaq-100</a></li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Ready to invest?</h2>
+    <div class="other-picks-links">
+      <a href="index-funds.html">🔀 Compare other index funds</a>
+      <a href="index.html">🎯 See individual stock picks</a>
+    </div>
+  </div>
+
+  <footer>Sample trend data for learning · Real index-change data hand-checked July 29, 2026 · Not investment advice</footer>
+</div>
+<script src="chart.js"></script>
+<script>
+  renderStockChart("chart", [21500,22200,21400,23600,24900,23800,25600,27100,26400,28700,29800,28100], "#a855f7");
+</script>
+<script src="topbar.js"></script>
+<script src="save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"index-nasdaq100", type:"index", icon:"💻", name:"Nasdaq-100", ticker:"Index Fund", url:"nasdaq100-timing.html"});
+</script>
+</body>
+</html>

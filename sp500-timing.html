@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When to Buy the S&P 500 — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="index-funds.html">← Back to index funds</a>
+
+  <div class="current-activity-box">
+    <div class="current-activity-label">🔴🟢 Happening Right Now</div>
+    <div class="current-activity-date">Most recent S&P 500 change — June 29, 2026</div>
+    <div class="swap-row">
+      <div class="swap-side in">
+        <span class="join-badge">🟢 Joining</span>
+        <div class="swap-name">Honeywell Aerospace</div>
+        <div class="swap-ticker">HONA</div>
+      </div>
+      <div class="swap-arrow">⇄</div>
+      <div class="swap-side out">
+        <span class="leave-badge">🔴 Leaving</span>
+        <div class="swap-name">Conagra Brands</div>
+        <div class="swap-ticker">CAG</div>
+      </div>
+    </div>
+    <div class="verdict-line buy">📈 Buy Honeywell Aerospace — a newly spun-off aerospace/defense company riding strong demand.</div>
+    <div class="current-activity-note">Note: this is about one company moving in/out of the S&P 500 — a separate question from whether now's a good time to buy the S&P 500 fund as a whole (see "The simple approach" section below for that).</div>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🗓️</div>
+    <div>
+      <div class="detail-name">When to Buy the S&P 500</div>
+      <div class="detail-ticker">Timing guidance for beginners</div>
+    </div>
+    <p class="blurb">Short answer: picking the "perfect" moment matters a lot less than most people think. Here's the simple version.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="tip-box">💡 <strong>Most beginners do best</strong> investing a fixed amount on a regular schedule (like monthly) instead of waiting for the "right" time. This is called <strong>dollar-cost averaging</strong>.</div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">S&P 500 sample trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>The simple approach most beginners use</h2>
+    <ul class="detail-bullets">
+      <li>Invest the same amount every month, no matter what the price is doing that day</li>
+      <li>Some months you buy at a high price, some months at a low price — it averages out over time</li>
+      <li>Removes the stress and guesswork of trying to find the "perfect" moment</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Signs some investors watch for</h2>
+    <ul class="detail-bullets">
+      <li>The market has recently dropped a lot — some long-term investors see dips as a chance to buy more for the same money</li>
+      <li>You have extra savings you're confident you won't need for at least 5+ years</li>
+      <li>You're starting fresh with nothing invested yet — starting now usually beats waiting</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Nobody — not even professionals — can consistently predict the "perfect" time to buy</li>
+      <li>Waiting for the ideal moment often means missing out on years of growth</li>
+      <li>Consistency over time tends to matter more than perfect timing</li>
+    </ul>
+  </div>
+
+  <section style="margin-top:32px;">
+    <div class="section-head">
+      <h2>🔄 Recent S&P 500 Company Changes</h2>
+      <span>Real data — most recent first</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 4px;">Which real companies have recently joined or left the S&P 500. Sourced from public index-tracking reports, not sample data. <strong>Last checked: July 29, 2026</strong> — this is a static file with no server, so ask to have it refreshed for the latest.</p>
+    <div class="swap-list">
+
+      <div class="swap-card">
+        <div class="swap-date">June 29, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Honeywell Aerospace</div>
+            <div class="swap-ticker">HONA</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Conagra Brands</div>
+            <div class="swap-ticker">CAG</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Honeywell Aerospace — a newly spun-off aerospace/defense company riding strong demand.</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">June 22, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Flex Ltd.</div>
+            <div class="swap-ticker">FLEX</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Campbell Soup Company</div>
+            <div class="swap-ticker">CPB</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Flex — an electronics manufacturer benefiting from data-center and AI hardware demand.</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">June 22, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Marvell Technology</div>
+            <div class="swap-ticker">MRVL</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Pool Corporation</div>
+            <div class="swap-ticker">POOL</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Marvell Technology — a chipmaker riding strong AI data-center demand.</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">June 1, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">FedEx Freight Holding</div>
+            <div class="swap-ticker">FDXF</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">EPAM Systems</div>
+            <div class="swap-ticker">EPAM</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy EPAM Systems — even though it's leaving the index, it's the stronger business here, benefiting from rising AI-driven tech-services demand while FedEx Freight sits in a freight industry stuck in a multi-year slump.</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">May 7, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Veeva Systems</div>
+            <div class="swap-ticker">VEEV</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Coterra Energy</div>
+            <div class="swap-ticker">CTRA</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Veeva Systems — a sticky, recurring-revenue software company serving the pharma industry (Coterra is leaving because it was acquired, not because it underperformed).</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">April 9, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Casey's General Stores</div>
+            <div class="swap-ticker">CASY</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Hologic</div>
+            <div class="swap-ticker">HOLX</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Casey's General Stores — a convenience-store chain with a long track record of steady growth (Hologic is leaving because it was bought out, not because it underperformed).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="tip-box">
+    💡 <strong>Why this can matter:</strong> when a company joins the S&P 500, funds that track the index are required to buy its shares to match the index — that buying pressure has historically given the stock a short-term bump. When a company leaves, the opposite tends to happen as tracking funds sell. It's a well-documented pattern, but it's not guaranteed, and by the time a change is public, some of that effect may already be reflected in the price.
+  </div>
+
+  <section style="margin-top:32px;">
+    <div class="section-head">
+      <h2>👀 Candidates That Could Join Next</h2>
+      <span>Speculative — not confirmed</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 4px;">These companies meet the S&P 500's eligibility rules (U.S.-based, profitable, enough shares publicly traded), which makes them plausible future additions — but nothing is official until S&P Dow Jones Indices announces it, and additions usually only happen when another company leaves.</p>
+    <div class="candidate-list">
+      <div class="candidate-chip"><b>Enbridge</b> ENB · Energy</div>
+      <div class="candidate-chip"><b>MercadoLibre</b> MELI · Consumer</div>
+      <div class="candidate-chip"><b>Bloom Energy</b> BE · Industrials</div>
+      <div class="candidate-chip"><b>Alnylam Pharma</b> ALNY · Healthcare</div>
+      <div class="candidate-chip"><b>Celestica</b> CLS · Technology</div>
+    </div>
+  </section>
+
+  <div class="other-picks" style="margin-top:36px;">
+    <h2>Sources for the changes above</h2>
+    <ul class="sources-box">
+      <li><a href="https://tickerleague.com/indices/stock/sp-500/additions-and-removals" target="_blank" rel="noopener">TickerLeague — S&P 500 Additions & Removals</a></li>
+      <li><a href="https://tickerleague.com/indices/stock/sp-500/next-additions" target="_blank" rel="noopener">TickerLeague — S&P 500 Candidates Most Likely to Be Added Next</a></li>
+      <li><a href="https://trendspider.com/blog/sp-index-rebalance-update-companies-added-and-removed/" target="_blank" rel="noopener">TrendSpider — S&P Index Rebalance Update</a></li>
+      <li><a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/" target="_blank" rel="noopener">S&P Dow Jones Indices — official S&P 500 page</a></li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Ready to invest?</h2>
+    <div class="other-picks-links">
+      <a href="picks/sp500.html">🗂️ See the S&P 500 pick</a>
+      <a href="index.html">🎯 See individual stock picks</a>
+      <a href="index-funds.html">🔀 Compare other index funds</a>
+    </div>
+  </div>
+
+  <footer>Sample trend data for learning · Real index-change data hand-checked July 29, 2026 · Not investment advice</footer>
+</div>
+<script src="chart.js"></script>
+<script>
+  renderStockChart("chart", [480,485,470,490,500,495,510,520,515,530,545,552.10], "#3b82f6");
+</script>
+<script src="topbar.js"></script>
+<script src="save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"index-sp500", type:"index", icon:"🗽", name:"S&P 500", ticker:"Index Fund", url:"sp500-timing.html"});
+</script>
+</body>
+</html>

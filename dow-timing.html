@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When to Buy the Dow — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="index-funds.html">← Back to index funds</a>
+
+  <div class="current-activity-box">
+    <div class="current-activity-label">🔴🟢 Happening Right Now</div>
+    <div class="current-activity-date">Most recent Dow change — June 29, 2026</div>
+    <div class="swap-row">
+      <div class="swap-side in">
+        <span class="join-badge">🟢 Joining</span>
+        <div class="swap-name">Alphabet (Google)</div>
+        <div class="swap-ticker">GOOGL</div>
+      </div>
+      <div class="swap-arrow">⇄</div>
+      <div class="swap-side out">
+        <span class="leave-badge">🔴 Leaving</span>
+        <div class="swap-name">Verizon Communications</div>
+        <div class="swap-ticker">VZ</div>
+      </div>
+    </div>
+    <div class="verdict-line buy">📈 Buy Alphabet (Google) — a diversified tech leader across search, cloud, and AI.</div>
+    <div class="current-activity-note">Note: this is about one company moving in/out of the Dow — a separate question from whether now's a good time to buy the Dow fund as a whole (see "The simple approach" section below for that).</div>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🏛️</div>
+    <div>
+      <div class="detail-name">When to Buy the Dow</div>
+      <div class="detail-ticker">Timing guidance for beginners</div>
+    </div>
+    <p class="blurb">The Dow Jones Industrial Average tracks just 30 well-established "blue-chip" American companies — it's the oldest and most famous index, and tends to be a bit calmer than the S&P 500 or Nasdaq-100.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="tip-box">💡 <strong>Most beginners do best</strong> investing a fixed amount on a regular schedule (like monthly) instead of waiting for the "right" time. This is called <strong>dollar-cost averaging</strong>.</div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Dow Jones sample trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>The simple approach most beginners use</h2>
+    <ul class="detail-bullets">
+      <li>Invest the same amount every month, no matter what the price is doing that day</li>
+      <li>Some months you buy at a high price, some months at a low price — it averages out over time</li>
+      <li>Removes the stress and guesswork of trying to find the "perfect" moment</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Signs some investors watch for</h2>
+    <ul class="detail-bullets">
+      <li>The market has recently dropped a lot — some long-term investors see dips as a chance to buy more for the same money</li>
+      <li>You want exposure to large, established companies rather than fast-moving tech names</li>
+      <li>You have extra savings you're confident you won't need for at least 5+ years</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Only 30 companies, so it's less spread out than the S&P 500's 500 companies</li>
+      <li>Weighted by stock price rather than company size — a company with a high share price affects the index more, which is a quirk unique to the Dow</li>
+      <li>Nobody — not even professionals — can consistently predict the "perfect" time to buy</li>
+    </ul>
+  </div>
+
+  <section style="margin-top:32px;">
+    <div class="section-head">
+      <h2>🔄 Recent Dow Company Changes</h2>
+      <span>Real data — most recent first</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 4px;">Which real companies have recently joined or left the Dow. Unlike the S&P 500 or Nasdaq-100, Dow changes aren't decided by a formula — a small committee picks replacements, so they happen rarely. <strong>Last checked: July 29, 2026</strong> — this is a static file with no server, so ask to have it refreshed for the latest.</p>
+    <div class="swap-list">
+
+      <div class="swap-card">
+        <div class="swap-date">June 29, 2026</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Alphabet (Google)</div>
+            <div class="swap-ticker">GOOGL</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Verizon Communications</div>
+            <div class="swap-ticker">VZ</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Alphabet (Google) — a diversified tech leader across search, cloud, and AI.</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">November 8, 2024</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">NVIDIA</div>
+            <div class="swap-ticker">NVDA</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Intel</div>
+            <div class="swap-ticker">INTC</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy NVIDIA — the clear leader in AI chips, with explosive growth.</div>
+        </div>
+      </div>
+
+      <div class="swap-card">
+        <div class="swap-date">November 8, 2024</div>
+        <div class="swap-row">
+          <div class="swap-side in">
+            <span class="join-badge">🟢 Joining</span>
+            <div class="swap-name">Sherwin-Williams</div>
+            <div class="swap-ticker">SHW</div>
+          </div>
+          <div class="swap-arrow">⇄</div>
+          <div class="swap-side out">
+            <span class="leave-badge">🔴 Leaving</span>
+            <div class="swap-name">Dow Inc.</div>
+            <div class="swap-ticker">DOW</div>
+          </div>
+        </div>
+        <div class="swap-reason">
+          <div class="verdict-line buy">📈 Buy Sherwin-Williams — a steady-growth paint and coatings company with a strong track record.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="tip-box">
+    💡 <strong>Why this can matter:</strong> when a company joins the Dow, funds that track it are required to buy its shares — that buying pressure has historically given the stock a short-term bump. When a company leaves, the opposite tends to happen. It's a well-documented pattern, but not guaranteed, and part of the effect is often already priced in by the time the change is public.
+  </div>
+
+  <section style="margin-top:32px;">
+    <div class="section-head">
+      <h2>👀 Could Be Removed Next</h2>
+      <span>Speculative — not confirmed</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 4px;">The Dow's committee doesn't announce changes in advance, but market commentators have flagged this company as "on notice" — vulnerable due to weak recent performance and a low share price.</p>
+    <div class="candidate-list">
+      <div class="candidate-chip"><b>Nike</b> NKE · Consumer</div>
+    </div>
+  </section>
+
+  <div class="other-picks" style="margin-top:36px;">
+    <h2>Sources for the changes above</h2>
+    <ul class="sources-box">
+      <li><a href="https://www.fool.com/investing/2026/06/29/dow-jones-changes-forever-today-googl-in-vz-out/" target="_blank" rel="noopener">The Motley Fool — Dow Jones Changes: Alphabet In, Verizon Out</a></li>
+      <li><a href="https://247wallst.com/investing/2026/07/23/verizon-was-booted-from-the-djia-5-dividend-giants-got-the-same-treatment-and-eventually-soared/" target="_blank" rel="noopener">24/7 Wall St. — Verizon Was Booted From the Dow</a></li>
+      <li><a href="https://www.spglobal.com/spdji/en/documents/methodologies/methodology-dj-averages.pdf" target="_blank" rel="noopener">S&P Dow Jones Indices — Dow Jones Averages Methodology</a></li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Ready to invest?</h2>
+    <div class="other-picks-links">
+      <a href="index-funds.html">🔀 Compare other index funds</a>
+      <a href="index.html">🎯 See individual stock picks</a>
+    </div>
+  </div>
+
+  <footer>Sample trend data for learning · Real index-change data hand-checked July 29, 2026 · Not investment advice</footer>
+</div>
+<script src="chart.js"></script>
+<script>
+  renderStockChart("chart", [40200,40800,39900,41500,42200,41800,43000,43600,43100,44400,45200,45800], "#2dd4bf");
+</script>
+<script src="topbar.js"></script>
+<script src="save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"index-dow", type:"index", icon:"🏛️", name:"Dow Jones Industrial Average", ticker:"Index Fund", url:"dow-timing.html"});
+</script>
+</body>
+</html>
