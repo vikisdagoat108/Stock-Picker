@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Short-Term Picks — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to home</a>
+
+  <header style="margin-top:18px;">
+    <h1>⚡ 4 Short-Term Picks</h1>
+    <p>Faster-moving companies with higher risk that need more attention. Click any one to read more about it.</p>
+    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices aren't live and this isn't personal financial advice.</div>
+  </header>
+
+  <section style="margin-top:24px;">
+    <div class="pick-grid" id="shortGrid"></div>
+  </section>
+
+  <footer>Sample picks for learning · Not investment advice</footer>
+</div>
+
+<script>
+const SHORT_TERM = [
+  {
+    slug:"nvda", icon:"🎮", ticker:"NVDA", name:"NVIDIA", price:134.50, chg:3.4, risk:"high",
+    blurb:"Has been on a hot streak recently, with the price moving up and down fast. Popular with short-term traders.",
+    bullets:["Price has moved a lot recently","Heavily traded, in the news often","Can rise or fall quickly"]
+  },
+  {
+    slug:"tsla", icon:"🚗", ticker:"TSLA", name:"Tesla", price:248.10, chg:-2.9, risk:"high",
+    blurb:"Famous for big daily price swings. Can jump several percent in either direction in a single day.",
+    bullets:["Very well known, easy to follow news on","Large daily price swings","Needs closer attention"]
+  },
+  {
+    slug:"pltr", icon:"🔎", ticker:"PLTR", name:"Palantir", price:132.60, chg:5.8, risk:"vhigh",
+    blurb:"A newer, smaller company whose price can jump a lot based on news and hype.",
+    bullets:["Moves fast on news and rumors","Higher potential reward, higher risk","Best for money you can afford to lose"]
+  },
+  {
+    slug:"amd", icon:"⚙️", ticker:"AMD", name:"Advanced Micro Devices", price:158.70, chg:4.1, risk:"high",
+    blurb:"Rides the same wave as the tech/chip industry trend — prices move quickly with the news cycle.",
+    bullets:["Tied closely to tech industry trends","Fast price movement","Popular short-term trading name"]
+  }
+];
+
+const riskLabel = { low:"Low Risk", medium:"Medium Risk", high:"High Risk", vhigh:"Very High Risk" };
+const riskClass = { low:"risk-low", medium:"risk-medium", high:"risk-high", vhigh:"risk-vhigh" };
+
+document.getElementById("shortGrid").innerHTML = SHORT_TERM.map(s => `
+  <a class="pick-card-link" href="picks/${s.slug}.html">
+    <div class="pick-card">
+      <div class="pick-top">
+        <div>
+          <div class="pick-icon">${s.icon}</div>
+          <div class="pick-name">${s.name}</div>
+          <div class="pick-ticker">${s.ticker}</div>
+        </div>
+      </div>
+      <div>
+        <span class="price">$${s.price.toFixed(2)}</span>
+        <span class="change ${s.chg>=0?'pos':'neg'}">${s.chg>=0?'+':''}${s.chg.toFixed(1)}% today</span>
+      </div>
+      <span class="risk-badge ${riskClass[s.risk]}">${riskLabel[s.risk]}</span>
+      <div class="blurb">${s.blurb}</div>
+      <ul class="bullets">${s.bullets.map(b=>`<li>${b}</li>`).join("")}</ul>
+      <div class="see-more">See full details →</div>
+    </div>
+  </a>
+`).join("");
+</script>
+<script src="topbar.js"></script>
+</body>
+</html>

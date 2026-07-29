@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Long-Term Picks — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to home</a>
+
+  <header style="margin-top:18px;">
+    <h1>🌱 4 Long-Term Picks</h1>
+    <p>Steady, well-known companies built to hold for years. Click any one to read more about it.</p>
+    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices aren't live and this isn't personal financial advice.</div>
+  </header>
+
+  <section style="margin-top:24px;">
+    <div class="pick-grid" id="longGrid"></div>
+  </section>
+
+  <footer>Sample picks for learning · Not investment advice</footer>
+</div>
+
+<script>
+const LONG_TERM = [
+  {
+    slug:"sp500", icon:"🗂️", ticker:"S&P 500 Fund", name:"Own a Slice of 500 Companies", price:552.10, chg:0.4, risk:"low",
+    blurb:"Instead of picking one company, this instantly spreads your money across 500 of America's biggest companies at once.",
+    bullets:["Most beginner-friendly option","Historically grown over long periods","No need to guess a 'winner'"]
+  },
+  {
+    slug:"jnj", icon:"💊", ticker:"JNJ", name:"Johnson & Johnson", price:151.80, chg:-0.1, risk:"low",
+    blurb:"A 100+ year old healthcare company. It pays you real cash every few months just for owning it.",
+    bullets:["Pays you a regular cash dividend","Sells products people always need","Known for stability, not excitement"]
+  },
+  {
+    slug:"msft", icon:"💻", ticker:"MSFT", name:"Microsoft", price:441.20, chg:0.3, risk:"medium",
+    blurb:"A trusted tech giant almost every business relies on. Grows steadily rather than spiking or crashing.",
+    bullets:["Used by millions of businesses worldwide","Slow, dependable growth over years","Well-known, easy to understand"]
+  },
+  {
+    slug:"pg", icon:"🧴", ticker:"PG", name:"Procter & Gamble", price:167.30, chg:0.2, risk:"low",
+    blurb:"Makes everyday household products (Tide, Pampers, Gillette) that people keep buying no matter what.",
+    bullets:["Everyday products = steady demand","Rarely has big price swings","Also pays a cash dividend"]
+  }
+];
+
+const riskLabel = { low:"Low Risk", medium:"Medium Risk", high:"High Risk", vhigh:"Very High Risk" };
+const riskClass = { low:"risk-low", medium:"risk-medium", high:"risk-high", vhigh:"risk-vhigh" };
+
+document.getElementById("longGrid").innerHTML = LONG_TERM.map(s => `
+  <a class="pick-card-link" href="picks/${s.slug}.html">
+    <div class="pick-card">
+      <div class="pick-top">
+        <div>
+          <div class="pick-icon">${s.icon}</div>
+          <div class="pick-name">${s.name}</div>
+          <div class="pick-ticker">${s.ticker}</div>
+        </div>
+      </div>
+      <div>
+        <span class="price">$${s.price.toFixed(2)}</span>
+        <span class="change ${s.chg>=0?'pos':'neg'}">${s.chg>=0?'+':''}${s.chg.toFixed(1)}% today</span>
+      </div>
+      <span class="risk-badge ${riskClass[s.risk]}">${riskLabel[s.risk]}</span>
+      <div class="blurb">${s.blurb}</div>
+      <ul class="bullets">${s.bullets.map(b=>`<li>${b}</li>`).join("")}</ul>
+      <div class="see-more">See full details →</div>
+    </div>
+  </a>
+`).join("");
+</script>
+<script src="topbar.js"></script>
+</body>
+</html>

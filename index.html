@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Picker — Simple Long Term & Short Term Picks</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📈 Simple Stock Picks</h1>
+    <p>No finance background needed. Choose a style below to see 4 easy-to-understand picks with plain-English reasons, not confusing numbers.</p>
+    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices aren't live and this isn't personal financial advice. Always do your own research or talk to a licensed advisor before investing real money.</div>
+  </header>
+
+  <div class="choice-grid">
+    <a class="choice-card long" href="long-term.html">
+      <div class="choice-icon">🌱</div>
+      <h2>Long-Term Investing</h2>
+      <p>You buy and hold for years, riding out the ups and downs. Usually calmer, steadier, and less stressful — good if you don't want to check prices every day.</p>
+      <div class="choice-cta">See 4 long-term picks →</div>
+    </a>
+    <a class="choice-card short" href="short-term.html">
+      <div class="choice-icon">⚡</div>
+      <h2>Short-Term Trading</h2>
+      <p>You try to buy and sell within days, weeks, or months. Prices can jump around a lot fast — more exciting, but riskier and needs more attention.</p>
+      <div class="choice-cta">See 4 short-term picks →</div>
+    </a>
+  </div>
+
+  <footer>Sample picks for learning · Not investment advice</footer>
+</div>
+<script src="topbar.js"></script>
+</body>
+</html>
