@@ -1,16 +1,16 @@
 :root, :root[data-theme="dark"]{
-  --bg:#0f1420; --card:#161d2e; --border:#263050; --text:#e6ebf5; --muted:#8b96b3; --text-soft:#c3cbe0;
-  --accent:#3b82f6; --green:#22c55e; --amber:#f59e0b; --orange:#fb923c; --red:#ef4444; --purple:#a855f7; --teal:#2dd4bf;
-  --disclaimer-bg:#3a2a10; --disclaimer-border:#6b4b12; --disclaimer-text:#f2c66d;
-  --tip-bg:rgba(59,130,246,0.10); --tip-border:rgba(59,130,246,0.35); --tip-text:#bfdbfe;
-  --overlay:rgba(0,0,0,0.55);
+  --bg:#0A192F; --card:#1E3A8A; --border:#2C4FA8; --text:#FFFFFF; --muted:#94A3B8; --text-soft:#CBD5E1;
+  --accent:#38BDF8; --cta-primary:#F59E0B; --green:#10B981; --amber:#F59E0B; --orange:#FB923C; --red:#F43F5E; --purple:#A78BFA; --teal:#2DD4BF;
+  --disclaimer-bg:rgba(225,29,72,0.2); --disclaimer-border:#E11D48; --disclaimer-text:#FECDD3;
+  --tip-bg:rgba(56,189,248,0.10); --tip-border:rgba(56,189,248,0.35); --tip-text:#BAE6FD;
+  --overlay:rgba(10,25,47,0.6);
 }
 :root[data-theme="light"]{
-  --bg:#f5f7fb; --card:#ffffff; --border:#e2e8f0; --text:#1a202c; --muted:#64748b; --text-soft:#334155;
-  --accent:#2563eb; --green:#16a34a; --amber:#d97706; --orange:#ea580c; --red:#dc2626; --purple:#7c3aed; --teal:#0d9488;
-  --disclaimer-bg:#fef3c7; --disclaimer-border:#f5d78e; --disclaimer-text:#92620a;
-  --tip-bg:#eff6ff; --tip-border:#bfdbfe; --tip-text:#1e40af;
-  --overlay:rgba(15,20,32,0.45);
+  --bg:#F0F5FB; --card:#ffffff; --border:#DCE6F5; --text:#0A192F; --muted:#64748B; --text-soft:#334155;
+  --accent:#0284C7; --cta-primary:#D97706; --green:#059669; --amber:#D97706; --orange:#EA580C; --red:#E11D48; --purple:#7C3AED; --teal:#0D9488;
+  --disclaimer-bg:#FEE2E2; --disclaimer-border:#FCA5A5; --disclaimer-text:#9F1239;
+  --tip-bg:#F0F9FF; --tip-border:#BAE6FD; --tip-text:#075985;
+  --overlay:rgba(10,25,47,0.45);
 }
 *{box-sizing:border-box;}
 body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);transition:background-color .15s,color .15s;}
@@ -22,7 +22,7 @@ body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg
 .topbar-right{display:flex;align-items:center;flex-wrap:wrap;gap:10px;}
 .theme-toggle-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:7px 11px;border-radius:8px;cursor:pointer;font-size:13px;}
 .theme-toggle-btn:hover{border-color:var(--accent);}
-.login-btn{background:var(--accent);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;}
+.login-btn{background:var(--cta-primary);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;}
 .login-btn:hover{opacity:.9;}
 
 .save-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;align-self:flex-start;}
@@ -46,7 +46,7 @@ body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg
 .modal-actions{display:flex;gap:8px;justify-content:flex-end;}
 .modal-actions button{padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;}
 .modal-cancel{background:transparent;border:1px solid var(--border);color:var(--text);}
-.modal-submit{background:var(--accent);border:none;color:#fff;font-weight:600;}
+.modal-submit{background:var(--cta-primary);border:none;color:#fff;font-weight:600;}
 
 header h1{margin:0 0 6px;font-size:24px;}
 header p{margin:0;color:var(--muted);font-size:14px;max-width:640px;line-height:1.5;}
@@ -63,8 +63,8 @@ header p{margin:0;color:var(--muted);font-size:14px;max-width:640px;line-height:
 .swap-side{flex:1;min-width:0;}
 .swap-side.out{text-align:right;}
 .swap-arrow{font-size:16px;color:var(--muted);flex-shrink:0;}
-.join-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(34,197,94,0.15);color:var(--green);margin-bottom:4px;}
-.leave-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(239,68,68,0.15);color:var(--red);margin-bottom:4px;}
+.join-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(16,185,129,0.15);color:var(--green);margin-bottom:4px;}
+.leave-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(244,63,94,0.15);color:var(--red);margin-bottom:4px;}
 .swap-name{font-size:14px;font-weight:700;}
 .swap-ticker{font-size:12px;color:var(--muted);}
 .swap-reason{font-size:12px;color:var(--text-soft);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
@@ -90,7 +90,7 @@ header p{margin:0;color:var(--muted);font-size:14px;max-width:640px;line-height:
 .best-deal-verdict{font-size:16px;font-weight:700;color:var(--green);margin-bottom:18px;}
 .best-deal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
 .best-deal-item{border:1px solid var(--border);border-radius:12px;padding:14px;}
-.best-deal-item.winner{border-color:var(--green);background:rgba(34,197,94,0.08);position:relative;}
+.best-deal-item.winner{border-color:var(--green);background:rgba(16,185,129,0.08);position:relative;}
 .best-deal-item.winner::before{content:"🏆 Best deal";position:absolute;top:-11px;left:12px;background:var(--green);color:#062b12;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px;}
 .best-deal-name{font-size:14px;font-weight:700;margin-bottom:6px;}
 .best-deal-stat{font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px;}
@@ -100,8 +100,8 @@ header p{margin:0;color:var(--muted);font-size:14px;max-width:640px;line-height:
 .change-chip-list{display:flex;flex-wrap:wrap;gap:8px;}
 .change-chip{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12.5px;}
 .change-chip b{margin-right:5px;}
-.change-chip.in{border-color:rgba(34,197,94,0.35);}
-.change-chip.out{border-color:rgba(239,68,68,0.35);}
+.change-chip.in{border-color:rgba(16,185,129,0.35);}
+.change-chip.out{border-color:rgba(244,63,94,0.35);}
 
 .candidate-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
 .candidate-chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:12.5px;min-width:150px;}
@@ -113,12 +113,12 @@ header p{margin:0;color:var(--muted);font-size:14px;max-width:640px;line-height:
 
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;}
 .choice-card{border-radius:14px;padding:26px 24px;border:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:transform .12s, border-color .12s;}
-.choice-card.long{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.35);}
+.choice-card.long{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.35);}
 .choice-card.short{background:rgba(251,146,60,0.08);border-color:rgba(251,146,60,0.35);}
-.choice-card.timing{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.35);}
-.choice-card.stocks{background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.35);}
-.choice-card.sp500{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.35);}
-.choice-card.nasdaq{background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.35);}
+.choice-card.timing{background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.35);}
+.choice-card.stocks{background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.35);}
+.choice-card.sp500{background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.35);}
+.choice-card.nasdaq{background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.35);}
 .choice-card.dow{background:rgba(45,212,191,0.08);border-color:rgba(45,212,191,0.35);}
 .choice-card:hover{transform:translateY(-3px);}
 .choice-card.long:hover{border-color:var(--green);}
@@ -151,10 +151,10 @@ section{margin-top:36px;}
 .change.pos{color:var(--green);} .change.neg{color:var(--red);}
 
 .risk-badge{align-self:flex-start;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
-.risk-low{background:rgba(34,197,94,0.15);color:var(--green);}
+.risk-low{background:rgba(16,185,129,0.15);color:var(--green);}
 .risk-medium{background:rgba(245,158,11,0.15);color:var(--amber);}
 .risk-high{background:rgba(251,146,60,0.18);color:var(--orange);}
-.risk-vhigh{background:rgba(239,68,68,0.18);color:var(--red);}
+.risk-vhigh{background:rgba(244,63,94,0.18);color:var(--red);}
 
 .blurb{font-size:13px;color:var(--text-soft);line-height:1.5;}
 .bullets{margin:0;padding-left:18px;font-size:12.5px;color:var(--muted);line-height:1.6;}
