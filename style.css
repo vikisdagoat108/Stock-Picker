@@ -172,6 +172,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:40px 0 10px;}
 .detail-name{font-size:24px;font-weight:700;}
 .detail-ticker{font-size:14px;color:var(--muted);}
 .detail-price-row{display:flex;align-items:baseline;gap:8px;}
+.live-label{font-size:11px;color:var(--muted);font-weight:600;}
 .detail-price-row .price{font-size:22px;}
 
 .detail-section{margin-top:26px;}

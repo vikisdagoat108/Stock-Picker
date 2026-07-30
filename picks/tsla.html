@@ -18,8 +18,9 @@
       <div class="detail-ticker">TSLA</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$248.10</span>
-      <span class="change neg">-2.9% today</span>
+      <span class="price" id="livePrice">$248.10</span>
+      <span class="change neg" id="liveChange">-2.9% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-high">High Risk</span>
     <p class="blurb">Famous for big daily price swings. Can jump several percent in either direction in a single day.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -69,12 +70,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [220,260,200,240,290,250,270,230,260,300,255,248.10], "#fb923c");
+  const tslaChartData = [220,260,200,240,290,250,270,230,260,300,255,248.10];
+  renderStockChart("chart", tslaChartData, "#fb923c");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-tsla", type:"stock", icon:"🚗", name:"Tesla", ticker:"TSLA", url:"picks/tsla.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("TSLA", {chartData: tslaChartData, chartId: "chart", color: "#fb923c"});
 </script>
 </body>
 </html>

@@ -14,7 +14,7 @@
   <header style="margin-top:18px;">
     <h1>⚡ 4 Short-Term Picks</h1>
     <p>Faster-moving companies with higher risk that need more attention. Click any one to read more about it.</p>
-    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices aren't live and this isn't personal financial advice.</div>
+    <div class="disclaimer">⚠️ Sample picks for learning purposes — prices update live from the market, but this isn't personal financial advice.</div>
   </header>
 
   <section style="margin-top:24px;">
@@ -62,8 +62,8 @@ document.getElementById("shortGrid").innerHTML = SHORT_TERM.map(s => `
         </div>
       </div>
       <div>
-        <span class="price">$${s.price.toFixed(2)}</span>
-        <span class="change ${s.chg>=0?'pos':'neg'}">${s.chg>=0?'+':''}${s.chg.toFixed(1)}% today</span>
+        <span class="price" data-live-price="${s.ticker}">$${s.price.toFixed(2)}</span>
+        <span class="change ${s.chg>=0?'pos':'neg'}" data-live-change="${s.ticker}">${s.chg>=0?'+':''}${s.chg.toFixed(1)}% today</span>
       </div>
       <span class="risk-badge ${riskClass[s.risk]}">${riskLabel[s.risk]}</span>
       <div class="blurb">${s.blurb}</div>
@@ -74,5 +74,9 @@ document.getElementById("shortGrid").innerHTML = SHORT_TERM.map(s => `
 `).join("");
 </script>
 <script src="topbar.js"></script>
+<script src="livePrice.js"></script>
+<script>
+  LivePrice.applyToGrid(SHORT_TERM.map(s => s.ticker));
+</script>
 </body>
 </html>

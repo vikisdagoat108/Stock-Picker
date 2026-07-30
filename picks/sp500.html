@@ -18,8 +18,9 @@
       <div class="detail-ticker">S&P 500 Fund</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$552.10</span>
-      <span class="change pos">+0.4% today</span>
+      <span class="price" id="livePrice">$552.10</span>
+      <span class="change pos" id="liveChange">+0.4% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-low">Low Risk</span>
     <p class="blurb">Instead of picking one company, this instantly spreads your money across 500 of America's biggest companies at once.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -71,12 +72,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [480,485,470,490,500,495,510,520,515,530,545,552.10], "#22c55e");
+  const sp500ChartData = [480,485,470,490,500,495,510,520,515,530,545,552.10];
+  renderStockChart("chart", sp500ChartData, "#22c55e");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-sp500", type:"stock", icon:"🗂️", name:"Own a Slice of 500 Companies", ticker:"S&P 500 Fund", url:"picks/sp500.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("VOO", {chartData: sp500ChartData, chartId: "chart", color: "#22c55e"});
 </script>
 </body>
 </html>

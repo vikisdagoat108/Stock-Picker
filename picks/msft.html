@@ -18,8 +18,9 @@
       <div class="detail-ticker">MSFT</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$441.20</span>
-      <span class="change pos">+0.3% today</span>
+      <span class="price" id="livePrice">$441.20</span>
+      <span class="change pos" id="liveChange">+0.3% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-medium">Medium Risk</span>
     <p class="blurb">A trusted tech giant almost every business relies on. Grows steadily rather than spiking or crashing.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -69,12 +70,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [380,390,385,400,410,405,415,425,420,430,438,441.20], "#22c55e");
+  const msftChartData = [380,390,385,400,410,405,415,425,420,430,438,441.20];
+  renderStockChart("chart", msftChartData, "#22c55e");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-msft", type:"stock", icon:"💻", name:"Microsoft", ticker:"MSFT", url:"picks/msft.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("MSFT", {chartData: msftChartData, chartId: "chart", color: "#22c55e"});
 </script>
 </body>
 </html>

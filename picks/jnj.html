@@ -18,8 +18,9 @@
       <div class="detail-ticker">JNJ</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$151.80</span>
-      <span class="change neg">-0.1% today</span>
+      <span class="price" id="livePrice">$151.80</span>
+      <span class="change neg" id="liveChange">-0.1% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-low">Low Risk</span>
     <p class="blurb">A 100+ year old healthcare company. It pays you real cash every few months just for owning it.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -70,12 +71,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [148,150,146,149,152,150,153,151,149,152,150,151.80], "#22c55e");
+  const jnjChartData = [148,150,146,149,152,150,153,151,149,152,150,151.80];
+  renderStockChart("chart", jnjChartData, "#22c55e");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-jnj", type:"stock", icon:"💊", name:"Johnson & Johnson", ticker:"JNJ", url:"picks/jnj.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("JNJ", {chartData: jnjChartData, chartId: "chart", color: "#22c55e"});
 </script>
 </body>
 </html>

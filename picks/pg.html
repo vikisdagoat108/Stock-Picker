@@ -18,8 +18,9 @@
       <div class="detail-ticker">PG</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$167.30</span>
-      <span class="change pos">+0.2% today</span>
+      <span class="price" id="livePrice">$167.30</span>
+      <span class="change pos" id="liveChange">+0.2% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-low">Low Risk</span>
     <p class="blurb">Makes everyday household products (Tide, Pampers, Gillette) that people keep buying no matter what.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -69,12 +70,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [150,152,149,153,155,154,157,159,158,161,165,167.30], "#22c55e");
+  const pgChartData = [150,152,149,153,155,154,157,159,158,161,165,167.30];
+  renderStockChart("chart", pgChartData, "#22c55e");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-pg", type:"stock", icon:"🧴", name:"Procter & Gamble", ticker:"PG", url:"picks/pg.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("PG", {chartData: pgChartData, chartId: "chart", color: "#22c55e"});
 </script>
 </body>
 </html>

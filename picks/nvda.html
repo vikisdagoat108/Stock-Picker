@@ -18,8 +18,9 @@
       <div class="detail-ticker">NVDA</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$134.50</span>
-      <span class="change pos">+3.4% today</span>
+      <span class="price" id="livePrice">$134.50</span>
+      <span class="change pos" id="liveChange">+3.4% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-high">High Risk</span>
     <p class="blurb">Has been on a hot streak recently, with the price moving up and down fast. Popular with short-term traders.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -69,12 +70,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [60,75,68,90,85,110,95,120,105,130,115,134.50], "#fb923c");
+  const nvdaChartData = [60,75,68,90,85,110,95,120,105,130,115,134.50];
+  renderStockChart("chart", nvdaChartData, "#fb923c");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-nvda", type:"stock", icon:"🎮", name:"NVIDIA", ticker:"NVDA", url:"picks/nvda.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("NVDA", {chartData: nvdaChartData, chartId: "chart", color: "#fb923c"});
 </script>
 </body>
 </html>

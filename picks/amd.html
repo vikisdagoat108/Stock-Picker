@@ -18,8 +18,9 @@
       <div class="detail-ticker">AMD</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$158.70</span>
-      <span class="change pos">+4.1% today</span>
+      <span class="price" id="livePrice">$158.70</span>
+      <span class="change pos" id="liveChange">+4.1% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-high">High Risk</span>
     <p class="blurb">Rides the same wave as the tech/chip industry trend — prices move quickly with the news cycle.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -68,12 +69,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [120,140,110,150,130,160,140,170,150,180,165,158.70], "#fb923c");
+  const amdChartData = [120,140,110,150,130,160,140,170,150,180,165,158.70];
+  renderStockChart("chart", amdChartData, "#fb923c");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-amd", type:"stock", icon:"⚙️", name:"Advanced Micro Devices", ticker:"AMD", url:"picks/amd.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("AMD", {chartData: amdChartData, chartId: "chart", color: "#fb923c"});
 </script>
 </body>
 </html>

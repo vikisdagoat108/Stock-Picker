@@ -18,8 +18,9 @@
       <div class="detail-ticker">PLTR</div>
     </div>
     <div class="detail-price-row">
-      <span class="price">$132.60</span>
-      <span class="change pos">+5.8% today</span>
+      <span class="price" id="livePrice">$132.60</span>
+      <span class="change pos" id="liveChange">+5.8% today</span>
+      <span class="live-label" id="liveLabel">sample data</span>
     </div>
     <span class="risk-badge risk-vhigh">Very High Risk</span>
     <p class="blurb">A newer, smaller company whose price can jump a lot based on news and hype.</p>
@@ -27,7 +28,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div class="chart-title">Price trend — last 12 months (shape is illustrative; today's price is live)</div>
     <div id="chart"></div>
   </div>
 
@@ -68,12 +69,17 @@
 </div>
 <script src="../chart.js"></script>
 <script>
-  renderStockChart("chart", [20,28,24,35,30,45,40,60,55,80,100,132.60], "#ef4444");
+  const pltrChartData = [20,28,24,35,30,45,40,60,55,80,100,132.60];
+  renderStockChart("chart", pltrChartData, "#ef4444");
 </script>
 <script src="../topbar.js"></script>
 <script src="../save.js"></script>
 <script>
   SPSaved.renderSaveButton("saveHolder", {id:"stock-pltr", type:"stock", icon:"🔎", name:"Palantir", ticker:"PLTR", url:"picks/pltr.html"});
+</script>
+<script src="../livePrice.js"></script>
+<script>
+  LivePrice.applyToDetailPage("PLTR", {chartData: pltrChartData, chartId: "chart", color: "#ef4444"});
 </script>
 </body>
 </html>
