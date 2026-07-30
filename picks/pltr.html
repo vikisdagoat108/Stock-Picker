@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palantir (PLTR) — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../short-term.html">← Back to short-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🔎</div>
+    <div>
+      <div class="detail-name">Palantir</div>
+      <div class="detail-ticker">PLTR</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$132.60</span>
+      <span class="change pos">+5.8% today</span>
+    </div>
+    <span class="risk-badge risk-vhigh">Very High Risk</span>
+    <p class="blurb">A newer, smaller company whose price can jump a lot based on news and hype.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Builds data-analysis software used by governments and large companies</li>
+      <li>Smaller and newer than more established stocks</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people trade it short-term</h2>
+    <ul class="detail-bullets">
+      <li>Any bit of news can move the price sharply in a single day</li>
+      <li>New contracts, earnings reports, and analyst comments cause jumps</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Higher potential reward comes with higher potential loss</li>
+      <li>Moves fast and unpredictably — only use money you can afford to lose</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other short-term picks</h2>
+    <div class="other-picks-links">
+      <a href="nvda.html">🎮 NVIDIA</a>
+      <a href="tsla.html">🚗 Tesla</a>
+      <a href="amd.html">⚙️ AMD</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [20,28,24,35,30,45,40,60,55,80,100,132.60], "#ef4444");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-pltr", type:"stock", icon:"🔎", name:"Palantir", ticker:"PLTR", url:"picks/pltr.html"});
+</script>
+</body>
+</html>

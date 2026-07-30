@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVIDIA (NVDA) — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../short-term.html">← Back to short-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🎮</div>
+    <div>
+      <div class="detail-name">NVIDIA</div>
+      <div class="detail-ticker">NVDA</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$134.50</span>
+      <span class="change pos">+3.4% today</span>
+    </div>
+    <span class="risk-badge risk-high">High Risk</span>
+    <p class="blurb">Has been on a hot streak recently, with the price moving up and down fast. Popular with short-term traders.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Makes computer chips (GPUs) originally built for video game graphics</li>
+      <li>Those chips turned out to be great at powering AI — putting it at the center of the AI boom</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people trade it short-term</h2>
+    <ul class="detail-bullets">
+      <li>Price reacts sharply to AI news, earnings, and big tech announcements</li>
+      <li>Heavily traded and always in the headlines</li>
+      <li>Big daily moves are exactly what short-term traders look for</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Fast movement cuts both ways — quick gains or quick losses</li>
+      <li>Best for money you're comfortable watching closely</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other short-term picks</h2>
+    <div class="other-picks-links">
+      <a href="tsla.html">🚗 Tesla</a>
+      <a href="pltr.html">🔎 Palantir</a>
+      <a href="amd.html">⚙️ AMD</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [60,75,68,90,85,110,95,120,105,130,115,134.50], "#fb923c");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-nvda", type:"stock", icon:"🎮", name:"NVIDIA", ticker:"NVDA", url:"picks/nvda.html"});
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procter & Gamble (PG) — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../long-term.html">← Back to long-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🧴</div>
+    <div>
+      <div class="detail-name">Procter & Gamble</div>
+      <div class="detail-ticker">PG</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$167.30</span>
+      <span class="change pos">+0.2% today</span>
+    </div>
+    <span class="risk-badge risk-low">Low Risk</span>
+    <p class="blurb">Makes everyday household products (Tide, Pampers, Gillette) that people keep buying no matter what.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Makes household basics: Tide, Pampers, Gillette, Crest</li>
+      <li>Products found in most homes</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people pick it for the long term</h2>
+    <ul class="detail-bullets">
+      <li>People buy essentials regardless of how the economy is doing</li>
+      <li>Predictable, steady sales</li>
+      <li>Also pays a regular cash dividend</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Growth tends to be slow and steady, not explosive</li>
+      <li>Don't expect the price to double quickly</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other long-term picks</h2>
+    <div class="other-picks-links">
+      <a href="sp500.html">🗂️ S&P 500 Fund</a>
+      <a href="jnj.html">💊 Johnson & Johnson</a>
+      <a href="msft.html">💻 Microsoft</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [150,152,149,153,155,154,157,159,158,161,165,167.30], "#22c55e");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-pg", type:"stock", icon:"🧴", name:"Procter & Gamble", ticker:"PG", url:"picks/pg.html"});
+</script>
+</body>
+</html>

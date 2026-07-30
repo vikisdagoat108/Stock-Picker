@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft (MSFT) — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../long-term.html">← Back to long-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">💻</div>
+    <div>
+      <div class="detail-name">Microsoft</div>
+      <div class="detail-ticker">MSFT</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$441.20</span>
+      <span class="change pos">+0.3% today</span>
+    </div>
+    <span class="risk-badge risk-medium">Medium Risk</span>
+    <p class="blurb">A trusted tech giant almost every business relies on. Grows steadily rather than spiking or crashing.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Makes Windows, Office, Azure cloud computing, and Xbox</li>
+      <li>Software and services used by millions of businesses daily</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people pick it for the long term</h2>
+    <ul class="detail-bullets">
+      <li>Revenue spread across software, cloud, and gaming</li>
+      <li>Consistent, strong profits over many years</li>
+      <li>Well-known and easy to follow</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Considered "expensive" relative to its current profits</li>
+      <li>Price can dip if growth expectations aren't met</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other long-term picks</h2>
+    <div class="other-picks-links">
+      <a href="sp500.html">🗂️ S&P 500 Fund</a>
+      <a href="jnj.html">💊 Johnson & Johnson</a>
+      <a href="pg.html">🧴 Procter & Gamble</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [380,390,385,400,410,405,415,425,420,430,438,441.20], "#22c55e");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-msft", type:"stock", icon:"💻", name:"Microsoft", ticker:"MSFT", url:"picks/msft.html"});
+</script>
+</body>
+</html>

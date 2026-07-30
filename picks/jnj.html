@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johnson & Johnson (JNJ) — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../long-term.html">← Back to long-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">💊</div>
+    <div>
+      <div class="detail-name">Johnson & Johnson</div>
+      <div class="detail-ticker">JNJ</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$151.80</span>
+      <span class="change neg">-0.1% today</span>
+    </div>
+    <span class="risk-badge risk-low">Low Risk</span>
+    <p class="blurb">A 100+ year old healthcare company. It pays you real cash every few months just for owning it.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Makes everyday healthcare products: Band-Aid, Tylenol, medical devices</li>
+      <li>One of the oldest, most established healthcare companies</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people pick it for the long term</h2>
+    <ul class="detail-bullets">
+      <li>People need healthcare products in good times and bad</li>
+      <li>Pays a cash "dividend" every few months just for owning it</li>
+      <li>Steady demand keeps the business predictable</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Grows more slowly than exciting tech stocks</li>
+      <li>Can dip on legal or regulatory news</li>
+      <li>Operates in a heavily regulated industry</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other long-term picks</h2>
+    <div class="other-picks-links">
+      <a href="sp500.html">🗂️ S&P 500 Fund</a>
+      <a href="msft.html">💻 Microsoft</a>
+      <a href="pg.html">🧴 Procter & Gamble</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [148,150,146,149,152,150,153,151,149,152,150,151.80], "#22c55e");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-jnj", type:"stock", icon:"💊", name:"Johnson & Johnson", ticker:"JNJ", url:"picks/jnj.html"});
+</script>
+</body>
+</html>

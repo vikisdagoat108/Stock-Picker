@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMD — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../short-term.html">← Back to short-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">⚙️</div>
+    <div>
+      <div class="detail-name">Advanced Micro Devices</div>
+      <div class="detail-ticker">AMD</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$158.70</span>
+      <span class="change pos">+4.1% today</span>
+    </div>
+    <span class="risk-badge risk-high">High Risk</span>
+    <p class="blurb">Rides the same wave as the tech/chip industry trend — prices move quickly with the news cycle.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Designs computer chips, competing with NVIDIA and Intel</li>
+      <li>Key player in PC processors and AI hardware</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people trade it short-term</h2>
+    <ul class="detail-bullets">
+      <li>Price often follows broader chip and tech industry news</li>
+      <li>Reacts quickly to headlines about NVIDIA and the sector</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Can swing fast even without company-specific news</li>
+      <li>Price is tied closely to overall tech sector mood</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other short-term picks</h2>
+    <div class="other-picks-links">
+      <a href="nvda.html">🎮 NVIDIA</a>
+      <a href="tsla.html">🚗 Tesla</a>
+      <a href="pltr.html">🔎 Palantir</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [120,140,110,150,130,160,140,170,150,180,165,158.70], "#fb923c");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-amd", type:"stock", icon:"⚙️", name:"Advanced Micro Devices", ticker:"AMD", url:"picks/amd.html"});
+</script>
+</body>
+</html>

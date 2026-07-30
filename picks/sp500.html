@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&P 500 Fund — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../long-term.html">← Back to long-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🗂️</div>
+    <div>
+      <div class="detail-name">Own a Slice of 500 Companies</div>
+      <div class="detail-ticker">S&P 500 Fund</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$552.10</span>
+      <span class="change pos">+0.4% today</span>
+    </div>
+    <span class="risk-badge risk-low">Low Risk</span>
+    <p class="blurb">Instead of picking one company, this instantly spreads your money across 500 of America's biggest companies at once.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Instantly buys tiny pieces of 500 large U.S. companies (Apple, Microsoft, Amazon, and more)</li>
+      <li>One purchase gives you instant variety</li>
+      <li>Not a single company — a "basket" fund</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people pick it for the long term</h2>
+    <ul class="detail-bullets">
+      <li>Spreads risk across 500 companies, so one bad month barely affects you</li>
+      <li>U.S. stock market has historically trended upward over many years</li>
+      <li>The easiest "set it and forget it" option for beginners</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Still moves up and down with the whole market — short-term dips are normal</li>
+      <li>Meant to be held for years, not reacted to day-to-day</li>
+      <li>Past performance doesn't guarantee future results</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other long-term picks</h2>
+    <div class="other-picks-links">
+      <a href="jnj.html">💊 Johnson & Johnson</a>
+      <a href="msft.html">💻 Microsoft</a>
+      <a href="pg.html">🧴 Procter & Gamble</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [480,485,470,490,500,495,510,520,515,530,545,552.10], "#22c55e");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-sp500", type:"stock", icon:"🗂️", name:"Own a Slice of 500 Companies", ticker:"S&P 500 Fund", url:"picks/sp500.html"});
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tesla (TSLA) — Stock Picker</title>
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('sp_theme') || 'dark');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../short-term.html">← Back to short-term picks</a>
+
+  <div class="detail-hero">
+    <div class="detail-icon">🚗</div>
+    <div>
+      <div class="detail-name">Tesla</div>
+      <div class="detail-ticker">TSLA</div>
+    </div>
+    <div class="detail-price-row">
+      <span class="price">$248.10</span>
+      <span class="change neg">-2.9% today</span>
+    </div>
+    <span class="risk-badge risk-high">High Risk</span>
+    <p class="blurb">Famous for big daily price swings. Can jump several percent in either direction in a single day.</p>
+    <div id="saveHolder"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Price trend — last 12 months (sample data)</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="detail-section">
+    <h2>What is it?</h2>
+    <ul class="detail-bullets">
+      <li>Designs and builds electric cars, along with batteries and solar products</li>
+      <li>One of the most talked-about companies in the stock market</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Why people trade it short-term</h2>
+    <ul class="detail-bullets">
+      <li>Price swings on production numbers, delivery counts, and news</li>
+      <li>Public statements from its CEO can move the stock fast</li>
+      <li>High daily volatility attracts traders looking for quick moves</li>
+    </ul>
+  </div>
+
+  <div class="detail-section">
+    <h2>Things to know</h2>
+    <ul class="detail-bullets">
+      <li>Price reacts to sentiment and headlines, not just company performance</li>
+      <li>Big swings can go against you just as easily as for you</li>
+    </ul>
+  </div>
+
+  <div class="other-picks">
+    <h2>Other short-term picks</h2>
+    <div class="other-picks-links">
+      <a href="nvda.html">🎮 NVIDIA</a>
+      <a href="pltr.html">🔎 Palantir</a>
+      <a href="amd.html">⚙️ AMD</a>
+    </div>
+  </div>
+
+  <footer>Sample data for learning purposes · Not investment advice</footer>
+</div>
+<script src="../chart.js"></script>
+<script>
+  renderStockChart("chart", [220,260,200,240,290,250,270,230,260,300,255,248.10], "#fb923c");
+</script>
+<script src="../topbar.js"></script>
+<script src="../save.js"></script>
+<script>
+  SPSaved.renderSaveButton("saveHolder", {id:"stock-tsla", type:"stock", icon:"🚗", name:"Tesla", ticker:"TSLA", url:"picks/tsla.html"});
+</script>
+</body>
+</html>
