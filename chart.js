@@ -1,4 +1,6 @@
-function renderStockChart(containerId, data, color) {
+function renderStockChart(containerId, data, color, unitPrefix) {
+  if (unitPrefix === undefined) unitPrefix = "$";
+  const fmt = (v) => unitPrefix + v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const el = document.getElementById(containerId);
   const w = 600, h = 160, padX = 10, padY = 16;
   const min = Math.min(...data), max = Math.max(...data);
@@ -31,9 +33,9 @@ function renderStockChart(containerId, data, color) {
       <path d="${linePath}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
     </svg>
     <div class="chart-meta">
-      <span>12mo ago: $${data[0].toFixed(2)}</span>
+      <span>12mo ago: ${fmt(data[0])}</span>
       <span class="chart-change ${changePct >= 0 ? "pos" : "neg"}">${changeSign}${changePct}% over 12 months</span>
-      <span>Today: $${data[data.length - 1].toFixed(2)}</span>
+      <span>Today: ${fmt(data[data.length - 1])}</span>
     </div>
   `;
 }
